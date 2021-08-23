@@ -19,11 +19,17 @@ Your instructor should have communicated which method to use for this project du
 Visit [SQL Try Editor at W3Schools.com](https://www.w3schools.com/Sql/trysql.asp?filename=trysql_select_all) using Chrome and build the queries below. Once they work copy them to the `queries.sql` file at the root of the project.
 
 - Find all customers with postal code 1010. Returns 3 records.
+  SELECT * FROM Customers WHERE postalcode = "1010";
 - Find the phone number for the supplier with the id 11. Should be (010) 9984510.
+  SELECT * FROM suppliers WHERE supplierid = 11;
 - List first 10 orders placed, sorted descending by the order date. The order with date 1997-02-12 should be at the top.
+  SELECT * FROM Orders ORDER BY orderdate DESC LIMIT 10
 - Find all customers that live in London, Madrid, or Brazil. Returns 18 records.
+  select * from customers where city IN("London", "Madrid") OR country IN("Brazil")
 - Add a customer record for _"The Shire"_, the contact name is _"Bilbo Baggins"_ the address is _"1 Hobbit-Hole"_ in _"Bag End"_, postal code _"111"_ and the country is _"Middle Earth"_.
+  INSERT INTO customers (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ("The Shire", "Bilbo Baggins", "1 Hobbit-Hole", "Bag End", "111", "Middle Earth");
 - Update _Bilbo Baggins_ record so that the postal code changes to _"11122"_.
+  UPDATE customers SET PostalCode = "11122" WHERE CustomerID = 93;
 
 **Clicking the `Restore Database` button in the page will repopulate the database with the original data and discard all changes you have made**.
 
